@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -201,6 +200,14 @@ public class DatabaseHelper {
             }
         } catch (IOException e) {
            LOGGER.error("execute sql file failure", e);
+        } finally {
+            if(br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    LOGGER.error("colse file failure", e);
+                }
+            }
         }
     }
 }
