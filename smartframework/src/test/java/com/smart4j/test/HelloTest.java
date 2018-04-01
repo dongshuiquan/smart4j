@@ -24,4 +24,9 @@ public class HelloTest {
         System.out.println(helloController.sayHello("smart4j"));
     }
 
+    @Test
+    public void testTransaction() {
+        HelloController helloController = BeanHelper.getBean(HelloController.class);
+       helloController.swap();
+    }
 }
